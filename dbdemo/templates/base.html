@@ -1,0 +1,116 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="container" id="row-container">
+    {% include "flash_messages.html" %}
+
+		<div class="row" id="row">
+            <div class="col-md-4">
+                <div class="card" id="card-container-layout">
+                    <div class="card-body" id="card">
+                        <h4 class="card-title">ΕΡΩΤΗΜΑ 3.1</h4>
+                        <p class="card-text" id="paragraph">Επιλεξτε αν θελετε να δειτε τα εργα η τα προγραμματα της βασης του ΕΛΙΔΕΚ.<br></p>
+                        <a class="btn btn-primary" id="show-btn" href="/3.1.programs">ΕΜΦΑΝΙΣΕ ΤΑ ΠΡΟΓΡΑΜΜΑΤΑ</a>
+                        <a class="btn btn-primary" id="show-btn" href="/3.1.projects">ΕΜΦΑΝΙΣΕ ΤΑ ΕΡΓΑ</a>
+                    </div>
+                </div>
+            </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+				
+                    <h4 class="card-title">ΕΡΩΤΗΜΑ 3.2</h4>
+                    <p class="card-text" id="paragraph">Επιλεξτε ποια οψη του σχεσιακου μοντελου θελετε να δειτε αναμεσα σε μία
+                        με έργα/επιχορηγήσεις ανά ερευνητή και μία μυστικη.<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/3.2.view1">ΕΜΦΑΝΙΣΕ ΤΗΝ ΠΡΩΤΗ ΟΨΗ</a>
+                    <a class="btn btn-primary" id="show-btn" href="/3.2.view2">ΕΜΦΑΝΙΣΕ ΤΗΝ ΔΕΥΤΕΡΗ ΟΨΗ</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">             
+                    <h4 class="card-title">ΕΡΩΤΗΜΑ 3.3</h4>
+                    <p class="card-text" id="paragraph">Πληκτρολογηστε παρακατω το ερευνητικό πεδίο που επιθυμειτε, και δειτε ποια έργα
+                        χρηματοδοτούνται σε αυτό το πεδίο και ποιοι ερευνητές ασχολούνται με αυτό το πεδίο το
+                        τελευταίο έτος.<br></p>
+                    <form class="form-horizontal" name="field-form" method="POST">
+                        <!-- hidden_tag returns the form's security metadata -->
+                        {{ form.hidden_tag() }}
+                        <div class="form-group col-sm-12 mb-3">
+                            {{ form.field.label(class = "form-label") }}
+                            <!-- Setting required to false disables the HTML attribute and leaves input validation to the backend -->
+                            {{ form.field(class = "form-control", placeholder="Type here ...", required = True) }}
+                            {% if form.field.errors %}
+                            <ul class = "errors">
+                                {% for error in form.field.errors %}
+                                <li class = "text-danger">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>          
+                        {{ form.submit(class = "btn btn-primary btn-submit-custom") }}
+                    </form>
+                </div>
+            </div>
+        </div>
+		
+		<div class="row" id="row-2">
+		   <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">ΕΡΩΤΗΜΑ 3.4</h4>
+                    <p class="card-text" id="paragraph">Δειτε ποιοι οργανισμοί έχουν λάβει τον ίδιο αριθμό έργων σε διάστημα δύο συνεχόμενων ετών, με
+                        τουλάχιστον 10 έργα ετησίως.
+                        <br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/3.4">ΕΜΦΑΝΙΣΕ ΤΟ ΤΡΑΠΕΖΙ</a>    
+                </div>
+            </div>
+        </div>
+		   <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">ΕΡΩΤΗΜΑ 3.5</h4>
+                    <p class="card-text" id="paragraph">Δείτε τα top-3 ζεύγη επιστημονικων πεδιων που εμφανιζονται σε έργα.<br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/3.5">ΕΜΦΑΝΙΣΕ ΤΟ ΤΡΑΠΕΖΙ</a>
+                </div>
+            </div>
+        </div>
+		
+		
+		
+		   <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">ΕΡΩΤΗΜΑ 3.6</h4>
+                    <p class="card-text" id="paragraph">Δείτε τους νέους ερευνητές (ηλικία < 40 ετών) που εργάζονται στα περισσότερα ενεργά έργα
+                        και τον αριθμό των έργων που εργάζονται.
+                        <br></p>
+                    <a class="btn btn-primary" id="show-btn" href="/3.6">ΕΜΦΑΝΙΣΕ ΤΟ ΤΡΑΠΕΖΙ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="row-3">
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">ΕΡΩΤΗΜΑ 3.7</h4>
+                    <p class="card-text" id="paragraph">Δείτε τα top-5 στελέχη που δουλεύουν για τον ΕΛ.ΙΔ.Ε.Κ. και έχουν δώσει το μεγαλύτερο ποσό
+                        χρηματοδοτήσεων σε μια εταιρεία.</p>
+                    <a class="btn btn-primary" id="show-btn" href="/3.7">ΕΜΦΑΝΙΣΕ ΤΟ ΤΡΑΠΕΖΙ</a>
+                </div>
+            </div>
+        </div>
+		
+        <div class="col-md-4">
+            <div class="card" id="card-container-layout">
+                <div class="card-body" id="card">
+                    <h4 class="card-title">ΕΡΩΤΗΜΑ 3.8</h4>
+                    <p class="card-text" id="paragraph">Δείτε τους ερευνητές που εργάζονται σε 5 ή περισσότερα έργα που δεν έχουν παραδοτεα.</p>
+                    <a class="btn btn-primary" id="show-btn" href="/3.8">ΕΜΦΑΝΙΣΕ ΤΟ ΤΡΑΠΕΖΙ</a>    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content%}

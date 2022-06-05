@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+{{table1}}
+        
+					<div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <thead>
+                                <tr>
+									<th>staff_name</th>
+                                    <th>company_name</th>
+                                    <th>total_funds</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for view in view1 %}
+                                    <tr>
+
+										<td> {{ view.staff }} </td>
+                                        <td> {{ view.company_name }} </td>
+                                        <td> {{ view.total_funds }} </td>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+         
+{% endblock content%}

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+{{table1}}
+        
+					<div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <thead>
+                                <tr>
+									<th>Researcher_name</th>
+                                    <th>Researcher_lastname</th>
+                                    <th>Number_of_projects_with_no_deliverables</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for view in view1 %}
+                                    <tr>
+
+										<td> {{ view.researcher_name }} </td>
+                                        <td> {{ view.researcher_lastname }} </td>
+                                        <td> {{ view.number_of_project_no_deliverables }} </td>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+         
+{% endblock content%}

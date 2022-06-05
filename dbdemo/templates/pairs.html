@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+{{table1}}
+        
+					<div class="table-responsive">
+                        <table class="table table-bordered table-dark">
+                            <thead>
+                                <tr>
+									<th>Field1</th>
+                                    <th>Field2</th>
+                                    <th>Appearance_count</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for view in view1 %}
+                                    <tr>
+
+										<td> {{ view.Field1 }} </td>
+                                        <td> {{ view.Field2 }} </td>
+										<td> {{ view.Appearance_count}} </td>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+         
+{% endblock content%}
